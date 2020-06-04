@@ -6,7 +6,7 @@ pipeline {
             label 'kube-slave-docker'
             defaultContainer 'jnlp'
             slaveConnectTimeout 200
-            yamlFile 'cicd/pod-docker.yml'
+            yamlFile 'jenkins-slave-pods/pod-docker.yml'
         }
     }
 
