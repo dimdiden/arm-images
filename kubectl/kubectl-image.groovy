@@ -6,7 +6,7 @@ pipeline {
             label 'kube-slave-docker'
             defaultContainer 'jnlp'
             slaveConnectTimeout 200
-            yamlFile 'jenkins-slave-pods/pod-docker.yml'
+            yamlFile 'cicd/pod-docker.yml'
         }
     }
 
@@ -26,14 +26,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/dimdiden/portanizer.git'
+                git 'https://github.com/dimdiden/arm-images.git'
             }
         }
         stage('Build-Push') {
             steps {
                 container('docker') {
                     script {
-                        dir('cicd/kubectl-image') {
+                        dir('kubectl') {
                             def dockerImage = docker.build "${env.REGISTRY}"
 
                             docker.withRegistry('', env.DOCKER_HUB_CREDS) {
