@@ -5,8 +5,8 @@ metadata:
   labels:
     label: kube-slave-python
 spec:
-  nodeSelector:
-    node-role.kubernetes.io/master: ""
+  # nodeSelector:
+  #   node-role.kubernetes.io/master: ""
   containers:
   - name: jnlp
     image: dimdiden/jenkins-slave:jdk11
