@@ -13,7 +13,7 @@ spec:
     tty: true
     workingDir: /home/jenkins/agent
   - name: godocker
-    image: godocker:latest
+    image: dimdiden/godocker:latest
     command: ['cat']
     tty: true
     volumeMounts:
